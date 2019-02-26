@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DynamicScriptLoaderService } from '../js-loader.service';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +7,9 @@ import { DynamicScriptLoaderService } from '../js-loader.service';
 })
 export class HeaderComponent implements OnInit {
 
+  loggedInState: boolean = false;
 
-  constructor(private jsLoader: DynamicScriptLoaderService) { }
+  constructor() { }
 
   ngOnInit() {
     // this.jsLoader.setField('header');
