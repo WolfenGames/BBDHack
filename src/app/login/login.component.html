@@ -1,0 +1,28 @@
+<mat-card class="login-mat-card">
+  <form (submit)='onSubmit()' [formGroup]="loginform" class="login-form">
+    <mat-form-field>
+      <input
+        matInput
+        name='username'
+        type='text'
+        formControlName='username'
+        placeholder='bbdnet####'>
+        <mat-error *ngIf="loginform.get('username').invalid">I am being an invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        name='password'
+        type='password'
+        formControlName='password'
+        placeholder='PASS'>
+        <mat-error *ngIf="loginform.get('password').invalid">I am being an invalid</mat-error>
+    </mat-form-field>
+    <h3 *ngIf="loginform.invalid">Please enter all required fields</h3>
+    <button
+      *ngIf="loginform.valid"
+      color="primary"
+      mat-raised-button
+      type="submit">Login</button>
+  </form>
+</mat-card>
