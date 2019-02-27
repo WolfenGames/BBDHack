@@ -11,7 +11,6 @@ import { MybookingsComponent } from './mybookings/mybookings.component';
 import { BookboardroomComponent } from './bookboardroom/bookboardroom.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
   { path: '', component: LoginComponent },
   { path: 'main', component: MainComponent },
   { path: 'boardrooms', component: ListboardroomsComponent },
@@ -21,8 +20,6 @@ const routes: Routes = [
   { path: 'qrscan', component: QrscanComponent },
   { path: 'my-bookings', component: MybookingsComponent },
   { path: '**', component: MainComponent }
-=======
->>>>>>> master
 ];
 
 @NgModule({
