@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatCardModule, MatInputModule } from '@angular/material';
+import { MatCardModule, MatInputModule, MatSnackBarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +42,8 @@ import { HttpClient } from 'selenium-webdriver/http';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

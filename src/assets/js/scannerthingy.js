@@ -12,6 +12,7 @@ var moz = false;
 var v = null;
 var loading = false;
 var result = null;
+var streamO = null;
 
 var imghtml = '<div id="qrfile"><canvas id="out-canvas" width="320" height="240"></canvas>' +
     '<div id="imghelp">drag and drop a QRCode here' +
@@ -78,7 +79,6 @@ function isCanvasSupported() {
     return !!(elem.getContext && elem.getContext('2d'));
 }
 function success(stream) {
-
     v.srcObject = stream;
     v.play();
 
@@ -147,6 +147,7 @@ function setwebcam2(options) {
     if (n.mediaDevices.getUserMedia) {
         n.mediaDevices.getUserMedia({ video: options, audio: false }).
             then(function (stream) {
+                streamO = stream;
                 success(stream);
             }).catch(function (error) {
                 error(error)
