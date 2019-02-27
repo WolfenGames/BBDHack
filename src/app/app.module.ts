@@ -47,7 +47,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
