@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DynamicScriptLoaderService } from '../js-loader.service';
-declare const qrcode: any;
+import { QrscanService } from '../qrscan.service';
+import { $ } from 'protractor';
+declare const load: any;
+declare let loading: boolean;
+declare let result: string;
 
 @Component({
   selector: 'app-qrscan',
@@ -8,48 +12,29 @@ declare const qrcode: any;
   styleUrls: ['./qrscan.component.css']
 })
 export class QrscanComponent implements OnInit {
-  constructor(private _jsload: DynamicScriptLoaderService) { }
+  constructor(private _jsload: DynamicScriptLoaderService, private qrService: QrscanService) { }
   x: any;
   gCtx;
   gCanvas;
 
   ngOnInit() {
     this._jsload.load('scannerthingy');
-    // this.gCanvas = document.getElementById('qr-canvas');
-    // this.gCanvas.style.width = '100px';
-    // this.gCanvas.style.height = '100px';
-    // this.gCanvas.width = 100;
-    // this.gCanvas.height = 100;
-    // this.gCtx = this.gCanvas.getContext('2d');
-    // this.gCtx.clearRect(0, 0, 100, 100);
-    // this.x = this._elref.nativeElement.querySelector('#video');
-    // if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    //   navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-    //     try {
-    //       this.x.srcObject = stream;
-    //     } catch {
-    //       this.x.src = window.URL.createObjectURL(stream);
-    //     }
-    //     this.x.play();
-    //     this.cameraThing();
-    //   });
-    // }
+    setTimeout(() => {
+      this.DoDaThing();
+    }, 500);
   }
 
-  // cameraThing(): void {
-  //   try {
-  //     this.gCtx.drawImage(this.x, 0, 0);
-  //     try {
-  //       qrcode.decode();
-  //     } catch (e) {
-  //       setTimeout(() => {
-  //         this.cameraThing();
-  //       }, 500);
-  //     }
-  //   } catch (e) {
-  //     setTimeout(() => {
-  //       this.cameraThing();
-  //     }, 500);
-  //   };
-  // }
+  DoDaThing(): void {
+    setTimeout(() => {
+      if (result) {
+        if (this.qrService.loadRoom(result) === "Valid") {
+          document.getElementById('v').style.display = "none";
+        } else {
+          this.DoDaThing();
+        }
+      } else {
+        this.DoDaThing();
+      }
+    }, 500);
+  }
 }

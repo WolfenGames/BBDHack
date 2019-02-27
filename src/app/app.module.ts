@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxQRCodeModule  } from 'ngx-qrcode2';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgxQRCodeModule  } from 'ngx-qrcode2';
     HeaderComponent,
   ],
   imports: [
+    // HttpClient,
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
