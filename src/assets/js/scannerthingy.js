@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+function CameraStuff() {
+    video = $('#video');
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+=======
 
 // QRCODE reader Copyright 2011 Lazar Laszlo
 // http://www.webqr.com
@@ -41,9 +47,27 @@ function captureToCanvas() {
     if (gUM) {
         try {
             gCtx.drawImage(v, 0, 0);
+>>>>>>> master
             try {
                 qrcode.decode();
             }
+<<<<<<< HEAD
+            video.get(0).play();
+            video.get(0).onloadeddata = () => {
+                console.log("Hosted");
+            }
+            video.get(0).onerror =(error) => {
+                console.log(error);
+            }
+            console.log(video);
+        });
+    }
+}
+
+$(document).ready(() => {
+    CameraStuff();
+})
+=======
             catch (e) {
                 // console.log(e);
                 setTimeout(captureToCanvas, 500);
@@ -175,3 +199,4 @@ function setimg() {
     document.getElementById("outdiv").innerHTML = imghtml;
 }
 load();
+>>>>>>> master

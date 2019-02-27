@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DynamicScriptLoaderService } from '../js-loader.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +7,7 @@ import { DynamicScriptLoaderService } from '../js-loader.service';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private jsLoader: DynamicScriptLoaderService) { }
+  constructor() { }
 
   ngOnInit() {
     this.cameraShit();

@@ -1,3 +1,68 @@
-<p>
-  viewboardroom works!
-</p>
+<!-- This will need to show the times when this boardroom is booked -->
+
+<!-- <div class="container"> -->
+  <!-- <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" style="min-height: 75px;">
+      
+      Cras justo odio
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center" style="min-height: 75px;">
+      Dapibus ac facilisis in
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center" style="min-height: 75px;">
+      Morbi leo risus
+    </li>
+  </ul> -->
+  <!-- <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['/my-bookings']" style="max-width: 491px;">My Bookings</button>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['/my-bookings']">My Bookings</button>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['/my-bookings']">My Bookings</button>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['/my-bookings']">My Bookings</button>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['/my-bookings']">My Bookings</button>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['/my-bookings']">My Bookings</button>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['/my-bookings']">My Bookings</button> -->
+<!-- </div> -->
+
+<div class="container h-100">
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-6 mx-auto text-center" style="min-width: 250px;">
+      <h1>{{ roomName }}</h1>
+      <!-- <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['/qrscan']">{{ today }} {{ todaysMonthString }} - {{ todayName }}</button> -->
+    </div>
+  </div>
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-6 mx-auto" style="min-width: 250px;">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/book-boardroom/roomname={{roomName}}&roomid={{roomId}}&day={{today}}&month={{todaysMonth}}&year=2019">{{ today }} {{ todaysMonthString }} - {{ todayName }}</button>
+    </div>
+  </div>
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-6 mx-auto" style="min-width: 250px;">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/book-boardroom/roomname={{roomName}}&roomid={{roomId}}&day={{todayPlus1}}&month={{todayPlus1Month}}&year=2019">{{ todayPlus1 }} {{ todayPlus1MonthString }} - {{ todayPlus1Name }}</button>
+    </div>
+  </div>
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-6 mx-auto" style="min-width: 250px;">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/book-boardroom/roomname={{roomName}}&roomid={{roomId}}&day={{todayPlus2}}&month={{todayPlus2Month}}&year=2019">{{ todayPlus2 }} {{ todayPlus2MonthString }} - {{ todayPlus2Name }}</button>
+    </div>
+  </div>
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-6 mx-auto" style="min-width: 250px;">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/book-boardroom/roomname={{roomName}}&roomid={{roomId}}&day={{todayPlus3}}&month={{todayPlus3Month}}&year=2019">{{ todayPlus3 }} {{ todayPlus3MonthString }} - {{ todayPlus3Name }}</button>
+    </div>
+  </div>
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-6 mx-auto" style="min-width: 250px;">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/book-boardroom/roomname={{roomName}}&roomid={{roomId}}&day={{todayPlus4}}&month={{todayPlus4Month}}&year=2019">{{ todayPlus4 }} {{ todayPlus4MonthString }} - {{ todayPlus4Name }}</button>
+    </div>
+  </div>
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-6 mx-auto" style="min-width: 250px;">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/book-boardroom/roomname={{roomName}}&roomid={{roomId}}&day={{todayPlus5}}&month={{todayPlus5Month}}&year=2019">{{ todayPlus5 }} {{ todayPlus5MonthString }} - {{ todayPlus5Name }}</button>
+    </div>
+  </div>
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-6 mx-auto" style="min-width: 250px;">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/book-boardroom/roomname={{roomName}}&roomid={{roomId}}&day={{todayPlus6}}&month={{todayPlus6Month}}&year=2019">{{ todayPlus6 }} {{ todayPlus6MonthString }} - {{ todayPlus6Name }}</button>
+    </div>
+  </div>
+</div>
+
