@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BoardRoomModelStoreContainer" CdmEntityContainer="BoardRoomEntities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="BoardRoomModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RoomStatus" ColumnName="RoomStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="BoardRoomModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BoardRoomModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Passwd" ColumnName="Passwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CancelBookings" FunctionName="BoardRoomModel.Store.CancelBookings" />
+    <FunctionImportMapping FunctionImportName="GetBookingsForAllRooms" FunctionName="BoardRoomModel.Store.GetBookingsForAllRooms">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BoardRoomModel.GetBookingsForAllRooms_Result">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RoomStatus" ColumnName="RoomStatus" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBookingsForRoomR" FunctionName="BoardRoomModel.Store.GetBookingsForRoomR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BoardRoomModel.GetBookingsForRoomR_Result">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RoomStatus" ColumnName="RoomStatus" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBookingsForRoomU" FunctionName="BoardRoomModel.Store.GetBookingsForRoomU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BoardRoomModel.GetBookingsForRoomU_Result">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RoomStatus" ColumnName="RoomStatus" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateCompleteBookings" FunctionName="BoardRoomModel.Store.UpdateCompleteBookings" />
+    <FunctionImportMapping FunctionImportName="UpdatePassedBookings" FunctionName="BoardRoomModel.Store.UpdatePassedBookings" />
+    <FunctionImportMapping FunctionImportName="Login" FunctionName="BoardRoomModel.Store.Login" />
+    <FunctionImportMapping FunctionImportName="AddBooking" FunctionName="BoardRoomModel.Store.AddBooking" />
+    <FunctionImportMapping FunctionImportName="Login1" FunctionName="BoardRoomModel.Store.Login1" />
+    <FunctionImportMapping FunctionImportName="GetBookingsForRoomR1" FunctionName="BoardRoomModel.Store.GetBookingsForRoomR1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BoardRoomModel.GetBookingsForRoomR1_Result">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="RoomStatus" ColumnName="RoomStatus" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
