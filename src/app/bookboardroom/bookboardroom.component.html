@@ -1,3 +1,19 @@
-<p>
-  bookboardroom works!
-</p>
+<div class="container">
+  <!-- <p>
+    {{ currentParams }}
+  </p> -->
+
+  <div class="text-center" style="margin-bottom: 30px;">
+    <h1>{{ roomName }}</h1>
+  </div>
+  <!-- Need to do *ngFor here -->
+  <div>
+    <div *ngFor="let room of Rooms" class="card border-secondary mb-3 mx-auto" style="max-width: 40rem;">
+      <div class="card-header">Booked by :: {{ room.FullName }}</div>
+      <div class="card-body" style="text-align:center;">
+        <p class="card-text">{{ room.StartTime }} - {{ room.EndTime }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

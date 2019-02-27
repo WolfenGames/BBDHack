@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-viewboardroom',
@@ -8,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class ViewboardroomComponent implements OnInit {
 
   // This does a look-ahead calculation of 6 days, excluding today.
+  // private queryParams: any;
+  private currentParams: String;
+
+  private roomName: String;
+  private roomId: String;
 
   private dateObj: Date = new Date();
   private months: number[] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -35,9 +41,35 @@ export class ViewboardroomComponent implements OnInit {
   private todayPlus5Name: String = this.getDayName(this.currentDay, 5);
   private todayPlus6Name: String = this.getDayName(this.currentDay, 6);
 
-  constructor() { }
+  // Look-ahead month values.
+  private todaysMonth: number = this.calcRollOverMonth(this.currentMonth, 0);
+  private todayPlus1Month: number = this.calcRollOverMonth(this.currentMonth, 1);
+  private todayPlus2Month: number = this.calcRollOverMonth(this.currentMonth, 2);
+  private todayPlus3Month: number = this.calcRollOverMonth(this.currentMonth, 3);
+  private todayPlus4Month: number = this.calcRollOverMonth(this.currentMonth, 4);
+  private todayPlus5Month: number = this.calcRollOverMonth(this.currentMonth, 5);
+  private todayPlus6Month: number = this.calcRollOverMonth(this.currentMonth, 6);
+
+  private monthStrings: String[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  // Look-ahead month values, but strings.
+  private todaysMonthString: String = this.monthStrings[this.todaysMonth];
+  private todayPlus1MonthString: String = this.monthStrings[this.todayPlus1Month];
+  private todayPlus2MonthString: String = this.monthStrings[this.todayPlus2Month];
+  private todayPlus3MonthString: String = this.monthStrings[this.todayPlus3Month];
+  private todayPlus4MonthString: String = this.monthStrings[this.todayPlus4Month];
+  private todayPlus5MonthString: String = this.monthStrings[this.todayPlus5Month];
+  private todayPlus6MonthString: String = this.monthStrings[this.todayPlus6Month];
+
+  // TODO: Need to code for year overflow.
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.currentParams = this.route.snapshot.params['id']; // Collab?id=0
+    this.roomName = this.currentParams.split('?')[0];
+    this.roomId = this.currentParams.split('?')[1].split('=')[1];
+    // console.log(this.roomId);
   }
 
   // If a day modulated by mod is 0, it should return the mod instead.
@@ -61,6 +93,19 @@ export class ViewboardroomComponent implements OnInit {
     else if (ans === 6) return 'Sat';
 
     return 'Sun';
+  }
+
+  private calcRollOverMonth (currentMonth: number, numberToAdd: number): number {
+    let monthCap: number = this.months[this.currentMonth];
+
+    if (this.today + numberToAdd > monthCap) {
+      if (this.currentMonth == 11)
+      {
+        return 0;
+      }
+      return this.currentMonth + 1;
+    }
+    return (this.currentMonth);
   }
 
 }

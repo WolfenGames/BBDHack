@@ -29,7 +29,7 @@
 
 <div class="container" style="max-width: 700px;">
   <h2 class="page-header">Login</h2>
-  <form (submit)="onLoginSubmit()">
+  <!-- <form (submit)="onLoginSubmit()">
     <div class="form-group">
       <label>Username</label>
       <input type="text" class="form-control" [(ngModel)]="username" name="username">
@@ -39,6 +39,32 @@
       <input type="password" class="form-control" [(ngModel)]="password" name="password">
     </div>
     <input type="submit" class="btn btn-dark" value="Login">
-    <!-- <button type="button" class="btn btn-dark float-right" (click)="onForgotPassword()">Forgot Password</button> -->
-  </form>
+    <-- <button type="button" class="btn btn-dark float-right" (click)="onForgotPassword()">Forgot Password</button> --
+  </form> -->
+  <form (submit)='onSubmit()' [formGroup]="loginform" class="login-form">
+      <mat-form-field>
+        <input
+          matInput
+          name='username'
+          type='text'
+          formControlName='username'
+          placeholder='BBD Login'>
+          <mat-error *ngIf="loginform.get('username').invalid">Invalid</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          name='password'
+          type='password'
+          formControlName='password'
+          placeholder='Password'>
+          <mat-error *ngIf="loginform.get('password').invalid">Invalid</mat-error>
+      </mat-form-field>
+      <hr>
+      <h3 *ngIf="loginform.invalid">Please enter all required fields</h3>
+      <button
+        *ngIf="loginform.valid"
+        type="submit"
+        class="btn btn-dark">Login</button>
+    </form>
 </div>
