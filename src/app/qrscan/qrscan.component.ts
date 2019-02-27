@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { DynamicScriptLoaderService } from '../Services/js-loader.service';
 import { QrscanService } from '../Services/qrscan.service';
 import { MatSnackBar } from '@angular/material';
@@ -13,7 +13,7 @@ declare let streamO: any;
   templateUrl: './qrscan.component.html',
   styleUrls: ['./qrscan.component.css']
 })
-export class QrscanComponent implements OnInit {
+export class QrscanComponent implements OnInit, OnDestroy {
   constructor(private jsLoad: DynamicScriptLoaderService, private qrService: QrscanService,
               private snackbar: MatSnackBar) { }
   x: any;
@@ -25,6 +25,11 @@ export class QrscanComponent implements OnInit {
     setTimeout(() => {
       this.DoDaThing();
     }, 500);
+  }
+
+  ngOnDestroy() {
+    v.pause();
+    streamO.getTracks().forEach(track => track.stop());
   }
 
   DoDaThing(): void {
