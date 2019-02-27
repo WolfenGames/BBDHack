@@ -1,0 +1,10 @@
+.container-qr {
+    display: block;
+    width: 100%;
+}
+
+#v {
+    width: 90%;
+    height: auto;
+    margin: 0 5%;
+}

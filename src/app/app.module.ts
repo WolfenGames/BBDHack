@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatCardModule, MatInputModule } from '@angular/material';
+import { MatCardModule, MatInputModule, MatSnackBarModule } from '@angular/material';
 
 // Components
 import { AppRoutingModule } from './app-routing.module';
@@ -17,11 +17,16 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 // Services
 
+=======
+import { NgxQRCodeModule  } from 'ngx-qrcode2';
+import { HttpClient } from 'selenium-webdriver/http';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -38,6 +43,7 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
   ],
   imports: [
+    // HttpClient,
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
@@ -45,8 +51,13 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
     HttpClientModule,
     RouterModule
+=======
+    NgxQRCodeModule,
+    MatSnackBarModule
+>>>>>>> master
   ],
   providers: [],
   bootstrap: [AppComponent]
