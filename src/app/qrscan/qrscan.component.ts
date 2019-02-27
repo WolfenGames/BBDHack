@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { DynamicScriptLoaderService } from '../js-loader.service';
-import { QrscanService } from '../qrscan.service';
-import { $ } from 'protractor';
+import { DynamicScriptLoaderService } from '../Services/js-loader.service';
+import { QrscanService } from '../Services/qrscan.service';
 import { MatSnackBar } from '@angular/material';
 declare const load: any;
 declare let loading: boolean;
