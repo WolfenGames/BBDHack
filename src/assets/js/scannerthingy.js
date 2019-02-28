@@ -135,7 +135,7 @@ function setwebcam() {
 
 function setwebcam2(options) {
     // console.log(options);
-    document.getElementById("result").innerHTML = "- scanning -";
+    // document.getElementById("result").innerHTML = "- scanning -";
     if (stype == 1) {
         setTimeout(captureToCanvas, 500);
         return;
