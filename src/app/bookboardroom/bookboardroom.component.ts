@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-bookboardroom',
@@ -34,19 +35,48 @@ export class BookboardroomComponent implements OnInit {
     month: null,
     year: null
   };
+
+  // Need to add properties to double bind to dates in the front.
+  private startTimeValue: string = moment().format("YYYY-MM-DD[T]HH:mm:ss");
+  private endTimeValue: string = moment().add(1, 'hour').format("YYYY-MM-DD[T]HH:mm:ss");
+  private currentMoment: string = moment().format("YYYY-MM-DD[T]HH:mm:ss");
+
+  // private bookingFailure: boolean = false;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.currentParams = this.route.snapshot.params['id']; // Collab?id=0
     this.paramArray = this.currentParams.split('&');
     this.roomName = this.paramArray[0].split('=')[1];
-    console.log(this.paramArray);
-    console.log(this.roomName);
+    // console.log(this.paramArray);
+    // console.log(this.roomName);
     for (let i = 1; i < this.paramArray.length; i++) {
       let str = this.paramArray[i].split('=');
       this.todayDate[str[0]] =  str[1];
     }
-    console.log(this.todayDate);
+    // console.log(this.todayDate);
   }
+
+  makeBooking() {
+    // Upon success, redirect to My-Bookings. Do request here.
+
+    // Upon failure, pop modal and state why.
+    if (moment(this.endTimeValue, "YYYY-MM-DD[T]HH:mm:ss").isBefore(moment(this.startTimeValue, "YYYY-MM-DD[T]HH:mm:ss"))) {
+      document.getElementById("openModalButton").click();
+    }
+    else if (moment(this.endTimeValue, "YYYY-MM-DD[T]HH:mm:ss").isBefore(moment(this.currentMoment, "YYYY-MM-DD[T]HH:mm:ss"))) {
+      document.getElementById("openModalButton").click();
+    }
+    else if (moment(this.startTimeValue, "YYYY-MM-DD[T]HH:mm:ss").isBefore(moment(this.currentMoment, "YYYY-MM-DD[T]HH:mm:ss"))) {
+      document.getElementById("openModalButton").click();
+    }
+
+    // If success redirect to my booking, remember to do it in callback.
+  }
+
+  // closeBookingFailureModal() {
+  //   // this.bookingFailure = false;
+  // }
 
 }

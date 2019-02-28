@@ -9,6 +9,7 @@ import { ViewboardroomComponent } from './viewboardroom/viewboardroom.component'
 import { QrscanComponent } from './qrscan/qrscan.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { BookboardroomComponent } from './bookboardroom/bookboardroom.component';
+import { CheckinComponent } from './checkin/checkin.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'book-boardroom/:id', component: BookboardroomComponent },
   { path: 'qrscan', component: QrscanComponent },
   { path: 'my-bookings', component: MybookingsComponent },
+  { path: 'checkin', component: CheckinComponent },
   { path: '**', component: MainComponent }
 ];
 

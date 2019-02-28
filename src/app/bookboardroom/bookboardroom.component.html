@@ -1,7 +1,4 @@
 <div class="container">
-  <!-- <p>
-    {{ currentParams }}
-  </p> -->
 
   <div class="text-center" style="margin-bottom: 30px;">
     <h1>{{ roomName }}</h1>
@@ -12,6 +9,74 @@
       <div class="card-header">Booked by :: {{ room.FullName }}</div>
       <div class="card-body" style="text-align:center;">
         <p class="card-text">{{ room.StartTime }} - {{ room.EndTime }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center" style="margin-top: 40px;">
+    <label for="start-time" style="display: block; margin: .4rem 0;">Starting Time:</label>
+
+    <input type="datetime-local" id="start-time"
+          name="meeting-time" [(ngModel)]="startTimeValue"
+          min="2018-06-07T00:00" max="2018-06-14T00:00"
+          style="margin: .4rem 0;">
+          
+    <label for="end-time" style="display: block; margin: .4rem 0;">End Time:</label>
+
+    <input type="datetime-local" id="end-time"
+          name="meeting-time" [(ngModel)]="endTimeValue"
+          min="2018-06-07T00:00" max="2018-06-14T00:00"
+          style="margin: .4rem 0;">
+
+    <div class="container" style="max-width: 100px; margin-top: 20px; margin-bottom: 20px;">
+      <button type="button" class="btn btn-dark btn-block" (click)="makeBooking()">Book</button>
+    </div>
+  </div>
+
+  <!-- <div class="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Incorrect Booking Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>The entered booking information is incorrect, please rectify and try again.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="closeBookingFailureModal()">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" [hidden]="true" id="openModalButton"></button>
+  
+  <!-- The Modal -->
+  <div class="modal fade show" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Incorrect Booking Information</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          The entered booking information is incorrect, please correct and try again.
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+        </div>
+  
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,20 @@ export class HeaderComponent implements OnInit {
 
   loggedInState: boolean = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     // this.jsLoader.setField('header');
     // this.jsLoader.load('jQuery');
+
+    if (this.authService.checkLoggedIn()) {
+      this.loggedInState = true;
+    }
   }
 
+  logout() {
+    this.authService.logout();
+    this.loggedInState = false;
+  }
 
 }

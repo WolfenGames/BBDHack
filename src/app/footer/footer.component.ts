@@ -10,13 +10,13 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.cameraShit();
+    //this.cameraShit();
   }
 
-  cameraShit(): void {
-    setTimeout(() => {
-      this.cameraShit();
-    }, 5);
-  }
+  // cameraShit(): void {
+  //   setTimeout(() => {
+  //     this.cameraShit();
+  //   }, 5);
+  // }
 
 }

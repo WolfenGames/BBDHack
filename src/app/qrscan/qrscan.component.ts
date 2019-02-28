@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DynamicScriptLoaderService } from '../Services/js-loader.service';
 import { QrscanService } from '../Services/qrscan.service';
 import { MatSnackBar } from '@angular/material';
@@ -13,7 +13,7 @@ declare let streamO: any;
   templateUrl: './qrscan.component.html',
   styleUrls: ['./qrscan.component.css']
 })
-export class QrscanComponent implements OnInit, OnDestroy {
+export class QrscanComponent implements OnInit {
   constructor(private jsLoad: DynamicScriptLoaderService, private qrService: QrscanService,
               private snackbar: MatSnackBar) { }
   x: any;
@@ -27,11 +27,6 @@ export class QrscanComponent implements OnInit, OnDestroy {
     }, 500);
   }
 
-  ngOnDestroy() {
-    v.pause();
-    streamO.getTracks().forEach(track => track.stop());
-  }
-
   DoDaThing(): void {
     setTimeout(() => {
       if (result) {
@@ -40,6 +35,8 @@ export class QrscanComponent implements OnInit, OnDestroy {
           document.getElementById('v').style.display = 'none';
           v.pause();
           streamO.getTracks().forEach(track => track.stop());
+
+          // Need to redirect here to intermediate screen.
         } else {
           result = null;
           this.DoDaThing();
