@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\bbdnet1944\\Desktop\\BBDHack\\server\\test3\\test3.csproj",
+  "TargetFramework": "v4.6.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

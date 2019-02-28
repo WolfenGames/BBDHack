@@ -9,7 +9,7 @@ export class QrscanService {
   constructor() { }
 
   loadRoom(val: string): any {
-    if (val === 'boardroom3') {
+    if (val === 'Delphi-5') {
       return 'Valid';
     } else {
       return 'inValid';

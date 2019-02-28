@@ -14,10 +14,10 @@ export class AuthService {
 
   login(user: User): void {
     // HERE IS THE IP AND STUFF
-    const url = 'http://localhost:3000/user/login?username=' + user.username + '&password=' + user.password;
+    const url = 'localhost:49396/api/login?username';
 
     // OtherStuff
-    this.httpclient.get<{ message: any }>(url, { withCredentials: true }).subscribe(responsedata => {
+    this.httpclient.post<{ message: any }>(url, user, { withCredentials: true }).subscribe(responsedata => {
       // const extras: NavigationExtras = {
       //   queryParams: {
       //     'msg': 'WHERE IS THE LAMB SAUCE - Gordam Ransay'
