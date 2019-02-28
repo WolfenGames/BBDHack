@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import * as moment from 'moment';
 
+import { BookingService } from '../Services/booking.service';
+// import { BookingNewService } from '../Services/booking-new.service';
+
 @Component({
   selector: 'app-bookboardroom',
   templateUrl: './bookboardroom.component.html',
@@ -43,19 +46,22 @@ export class BookboardroomComponent implements OnInit {
 
   // private bookingFailure: boolean = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private bookingService: BookingService
+  ) { }
 
   ngOnInit() {
     this.currentParams = this.route.snapshot.params['id']; // Collab?id=0
     this.paramArray = this.currentParams.split('&');
     this.roomName = this.paramArray[0].split('=')[1];
-    // console.log(this.paramArray);
-    // console.log(this.roomName);
+    console.log(this.paramArray);
+    console.log(this.roomName);
     for (let i = 1; i < this.paramArray.length; i++) {
       let str = this.paramArray[i].split('=');
       this.todayDate[str[0]] =  str[1];
     }
-    // console.log(this.todayDate);
+    console.log(this.todayDate);
   }
 
   makeBooking() {
@@ -73,6 +79,7 @@ export class BookboardroomComponent implements OnInit {
     }
 
     // If success redirect to my booking, remember to do it in callback.
+    // this.bookingService.makeBooking()
   }
 
   // closeBookingFailureModal() {
